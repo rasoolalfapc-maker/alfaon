@@ -5,29 +5,18 @@
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
   </head>
   <body>
-    <a-scene 
-      mindar-image="imageTargetSrc: targets.mind;" 
-      vr-mode-ui="enabled: false" 
-      device-orientation-permission-ui="enabled: false">
+    <!-- ویدیو مخفی -->
+    <video id="video1" src="https://www.w3schools.com/html/mov_bbb.mp4" 
+           autoplay muted playsinline loop style="display:none"></video>
 
-      <a-assets>
-        <!-- ویدیوی آنلاین -->
-        <video id="my-video" autoplay loop muted playsinline 
-               src="https://www.w3schools.com/html/mov_bbb.mp4" 
-               crossorigin="anonymous">
-        </video>
-      </a-assets>
-
+    <a-scene mindar-image="imageTargetSrc: targets.mind;" 
+             vr-mode-ui="enabled: false" 
+             device-orientation-permission-ui="enabled: false">
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
+      <!-- وقتی تارگت شناسایی شد -->
       <a-entity mindar-image-target="targetIndex: 0">
-        <!-- ویدیو به جای plane -->
-        <a-video src="#my-video" 
-                 position="0 0 0" 
-                 height="0.552" 
-                 width="1" 
-                 rotation="0 0 0">
-        </a-video>
+        <a-video src="#video1" width="1" height="0.55" position="0 0 0"></a-video>
       </a-entity>
     </a-scene>
   </body>
